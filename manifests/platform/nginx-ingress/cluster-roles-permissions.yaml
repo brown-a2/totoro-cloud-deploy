@@ -28,9 +28,11 @@ rules:
     resources:
       - leases
     verbs:
+      - create
       - get
       - list
       - watch
+      - update
   # Permissions for ingress classes
   - apiGroups: ["networking.k8s.io"]
     resources:
