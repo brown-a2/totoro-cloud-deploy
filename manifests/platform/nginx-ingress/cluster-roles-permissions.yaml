@@ -10,6 +10,7 @@ rules:
       - configmaps
       - services
       - nodes
+      - namespaces
     verbs:
       - get
       - list
@@ -37,6 +38,25 @@ rules:
     verbs:
       - get
       - list
+      - watch
+  # Permissions for ingresses
+  - apiGroups: ["networking.k8s.io"]
+    resources:
+      - ingresses
+      - ingresses/status
+    verbs:
+      - get
+      - list
+      - watch
+      - update
+  # Permissions for events (useful for debugging)
+  - apiGroups: [""]
+    resources:
+      - events
+    verbs:
+      - create
+      - patch
+      - update
       - watch
 
 ---
