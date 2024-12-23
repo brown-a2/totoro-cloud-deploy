@@ -1,0 +1,25 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  # Name of the ClusterRole
+  name: nginx-ingress-controller-role
+rules:
+  - apiGroups: [""]
+    resources: ["secrets", "services", "configmaps"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["discovery.k8s.io"]
+    resources: ["endpointslices"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: nginx-ingress-serviceaccount-binding
+subjects:
+  - kind: ServiceAccount
+    name: nginx-ingress-serviceaccount
+    namespace: ingress-nginx
+roleRef:
+  kind: ClusterRole
+  name: nginx-ingress-controller-role
+  apiGroup: rbac.authorization.k8s.io
