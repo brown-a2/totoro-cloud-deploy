@@ -8,6 +8,7 @@ rules:
       - secrets
       - configmaps
       - services
+      - nodes
     verbs:
       - get
       - list
@@ -22,6 +23,13 @@ rules:
   - apiGroups: ["coordination.k8s.io"]
     resources:
       - leases
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups: ["networking.k8s.io"]
+    resources:
+      - ingressclasses
     verbs:
       - get
       - list
