@@ -3,6 +3,7 @@ kind: ClusterRole
 metadata:
   name: nginx-ingress-cluster-role
 rules:
+  # Permissions for core resources like secrets, configmaps, services, and nodes
   - apiGroups: [""]
     resources:
       - secrets
@@ -13,6 +14,7 @@ rules:
       - get
       - list
       - watch
+  # Permissions for endpoint slices
   - apiGroups: ["discovery.k8s.io"]
     resources:
       - endpointslices
@@ -20,6 +22,7 @@ rules:
       - get
       - list
       - watch
+  # Permissions for leader leases
   - apiGroups: ["coordination.k8s.io"]
     resources:
       - leases
@@ -27,6 +30,7 @@ rules:
       - get
       - list
       - watch
+  # Permissions for ingress classes
   - apiGroups: ["networking.k8s.io"]
     resources:
       - ingressclasses
