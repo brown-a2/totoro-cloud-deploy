@@ -1,0 +1,6 @@
+persistence:
+  enabled: true
+  accessModes:
+    - ReadWriteOnce
+  size: 10Gi
+  storageClassName: "default"  # Adjust this based on your setup
