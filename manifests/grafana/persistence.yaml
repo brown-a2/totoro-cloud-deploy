@@ -3,4 +3,4 @@ persistence:
   accessModes:
     - ReadWriteOnce
   size: 10Gi
-  storageClassName: "default"  # Adjust this based on your setup
+  storageClassName: "default"
