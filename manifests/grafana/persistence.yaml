@@ -3,4 +3,4 @@ persistence:
   accessModes:
     - ReadWriteOnce
   size: 10Gi
-  storageClassName: "default"
+  storageClassName: "local-path"
